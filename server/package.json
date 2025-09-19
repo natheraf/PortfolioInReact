@@ -4,11 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "prod": "node index.js",
-    "prod-drop": "node index.js prod drop",
-    "dev": "node index.js dev",
-    "dev-drop": "node index.js dev drop",
+    "start": "node index.js dev",
+    "start-drop": "node index.js dev drop",
     "jsdoc": "jsdoc -c ./jsdoc/config.json --readme ./jsdoc/home.md",
     "jsdoc-open": "jsdoc -c ./jsdoc/config.json --readme ./jsdoc/home.md && start ./jsdoc/out/index.html"
   },
