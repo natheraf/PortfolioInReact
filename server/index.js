@@ -18,13 +18,9 @@ app.use(express.static("../rclient/build"));
 const port = process.env.PORT || 8080;
 
 /**
- * If `dev` was in our arguments, we will start the app by listening for HTTP requests. This is used for development.
- *
- * Otherwise we will start our app in production mode with SSL certificates.
+ * Default no SSL. SSL handled by nginx.
  */
-if (process.argv.includes("dev")) {
-  app.listen(port, () => console.log(`Express Server on port ${port}`));
-} else {
+if (process.argv.includes("ssl")) {
   app.get("*", (_, res) => {
     res.sendFile(path.join(__dirname, "../rclient/build/index.html"));
   });
@@ -39,4 +35,6 @@ if (process.argv.includes("dev")) {
   );
 
   httpServer.listen(port, () => console.log(`Express Server on port ${port}`));
+} else {
+  app.listen(port, () => console.log(`Express Server on port ${port}`));
 }
