@@ -26,6 +26,12 @@ export const Home = () => {
       "91921895_p0.jpg",
       "93425255_p0.jpg",
       "94982142_p0.png",
+      "72011358_p0.png",
+      "55372456_p0.jpg",
+      "73497750_p0.jpg",
+      "76991851_p0.jpg",
+      "80353930_p0.png",
+      "98373350_p0.jpg",
     ];
     const randomFile = files[Math.floor(Math.random() * files.length)];
     setBgImageNumber(randomFile.substring(0, randomFile.indexOf("_")));
