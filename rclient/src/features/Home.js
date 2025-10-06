@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { TextWithBlurBg } from "./TextWithBlurBg";
 import { ProjectCard } from "./ProjectCard";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 export const Home = () => {
   const [bgImageNumber, setBgImageNumber] = React.useState("47089555");
@@ -137,6 +138,14 @@ export const Home = () => {
             image="url(images/media.jpg)"
             imageSrc="https://unsplash.com/photos/a-pair-of-mp3-players-sitting-next-to-each-other-csIWQzzcLYo"
           />
+          <Button
+            target="_blank"
+            href={`https://drive.google.com/file/d/17x1upij5xTROGiYUJ0PstGCib_YfYIsj/view?usp=sharing`}
+            endIcon={<DescriptionIcon />}
+            variant="contained"
+          >
+            View Resume
+          </Button>
         </Stack>
       </Stack>
     </Stack>
