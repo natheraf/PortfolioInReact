@@ -70,7 +70,6 @@ export const Home = () => {
                   <Chip
                     label={text}
                     sx={{
-                      color: "white",
                       fontSize: "1rem",
                       backgroundColor: "rgba(0, 0, 0, .5)",
                     }}
