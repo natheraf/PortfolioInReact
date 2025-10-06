@@ -234,4 +234,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,react,node,macos
 
-rclient/public/bg_pictures/*
+rclient/public/images/*
