@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Button, Chip, Grid, Stack, Typography } from "@mui/material";
 import { TextWithBlurBg } from "./TextWithBlurBg";
+import { ProjectCard } from "./ProjectCard";
 
 export const Home = () => {
   const [bgImageNumber, setBgImageNumber] = React.useState("47089555");
@@ -85,7 +86,6 @@ export const Home = () => {
         sx={{
           height: "100vh",
           width: "100%",
-          backgroundColor: "black",
           alignItems: "center",
         }}
       >
@@ -98,7 +98,9 @@ export const Home = () => {
             Image Source
           </Button>
         </Box>
-        <Typography color="white">Test</Typography>
+        <Typography variant="h4">Experience</Typography>
+        <ProjectCard />
+        <Typography variant="h4">Projects</Typography>
       </Stack>
     </Stack>
   );

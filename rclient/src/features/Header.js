@@ -45,7 +45,7 @@ export const Header = () => {
                   window.open("https://github.com/natheraf", "_blank").focus()
                 }
               >
-                <GitHubIcon htmlColor="white" />
+                <GitHubIcon />
               </IconButton>
             </Tooltip>
           </Stack>
