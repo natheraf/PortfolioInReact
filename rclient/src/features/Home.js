@@ -100,7 +100,7 @@ export const Home = () => {
             Image Source
           </Button>
         </Box>
-        <Stack alignItems={"center"} spacing={3}>
+        <Stack alignItems={"center"} spacing={3} sx={{ padding: "0 1rem" }}>
           <Typography variant="h3">Projects</Typography>
           <ProjectCard
             title="CRM"
