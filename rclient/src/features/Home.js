@@ -1,5 +1,14 @@
 import * as React from "react";
-import { Box, Button, Chip, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Container,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { TextWithBlurBg } from "./TextWithBlurBg";
 import { ProjectCard } from "./ProjectCard";
 
@@ -20,7 +29,7 @@ export const Home = () => {
     const randomFile = files[Math.floor(Math.random() * files.length)];
     setBgImageNumber(randomFile.substring(0, randomFile.indexOf("_")));
     const bgImage = document.getElementById("bg-img");
-    bgImage.style.backgroundImage = `url(/bg_pictures/${randomFile})`;
+    bgImage.style.backgroundImage = `url(images/bg_pictures/${randomFile})`;
   };
 
   React.useEffect(() => {
@@ -56,7 +65,7 @@ export const Home = () => {
             transition: "2s .5s",
             msTransition: "2s .5s",
             WebkitTransition: "2s .5s",
-            backgroundImage: "url(/bg_pictures/47089555_p0.jpg)",
+            backgroundImage: "url(images/bg_pictures/47089555_p0.jpg)",
             zIndex: -1,
           }}
         />
@@ -80,26 +89,55 @@ export const Home = () => {
           </Grid>
         </Box>
       </Stack>
-      <Stack
-        spacing={3}
-        sx={{
-          height: "100vh",
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
+      <Stack spacing={5} alignItems={"center"}>
         <Box>
           <Button
-            sx={{ marginTop: 1 }}
+            sx={{ marginTop: 1, color: "gray" }}
             target="_blank"
             href={`https://www.pixiv.net/en/artworks/${bgImageNumber}`}
           >
             Image Source
           </Button>
         </Box>
-        <Typography variant="h4">Experience</Typography>
-        <ProjectCard />
-        <Typography variant="h4">Projects</Typography>
+        <Stack alignItems={"center"} spacing={3}>
+          <Typography variant="h3">Projects</Typography>
+          <ProjectCard
+            title="CRM"
+            grayTitle="Full Stack"
+            subTitle="@hypoflo (Neuraxis)"
+            description="Feature-rich CRM platform with intuitive contact management, sales pipeline tracking, and seamless team collaboration."
+            technologies={["React", "Node.js", "PostgreSQL", "AWS"]}
+            image="url(images/CRM.jpg)"
+            imageSrc="https://unsplash.com/photos/laptop-computer-on-glass-top-table-hpjSkU2UYSU"
+          />
+          <ProjectCard
+            title="College Club Website"
+            grayTitle="Front End"
+            subTitle="@Koppelman School of Business"
+            description="Comprehensive events calendar with RSVP management, real-time updates, and automated email notifications."
+            technologies={["React", "CI/CD", "GitHub Actions"]}
+            image="url(images/club.jpg)"
+            imageSrc="https://unsplash.com/photos/smartphone-screen-showing-facebook-application-D2TZ-ashGzc"
+          />
+          <ProjectCard
+            title="EPUB Reader"
+            grayTitle="Full Stack"
+            subTitle=""
+            description="Next-generation EPUB reader with gesture-based navigation, immersive reading modes, and cloud sync across all your devices."
+            technologies={["React", "Node.js", "MongoDB", "IndexedDB"]}
+            image="url(images/reader.jpg)"
+            imageSrc="https://unsplash.com/photos/graphical-user-interface-application-bmdMcsnFyCc"
+          />
+          <ProjectCard
+            title="Media Downloader"
+            grayTitle="Full Stack"
+            subTitle=""
+            description="Powerful media downloader supporting 1000+ sites with format selection, playlist handling, and batch processing."
+            technologies={["Apache Server", "PHP", "JavaScript", "HTML", "CSS"]}
+            image="url(images/media.jpg)"
+            imageSrc="https://unsplash.com/photos/a-pair-of-mp3-players-sitting-next-to-each-other-csIWQzzcLYo"
+          />
+        </Stack>
       </Stack>
     </Stack>
   );
