@@ -8,7 +8,6 @@ function App() {
   return (
     <Router>
       <Header />
-      {/* <Container maxWidth="xl" sx={{ mt: "88px" }}></Container> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<h1>Wrong path</h1>} />
