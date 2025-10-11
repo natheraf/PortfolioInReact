@@ -14,35 +14,42 @@ import { ProjectCard } from "./ProjectCard";
 import DescriptionIcon from "@mui/icons-material/Description";
 
 export const Home = () => {
-  const [bgImageNumber, setBgImageNumber] = React.useState("47089555");
+  const files = React.useRef(null);
+  const [bgImageSrc, setBgImageSrc] = React.useState(
+    "https://www.pixiv.net/en/artworks/47089555"
+  );
 
   const setRandomBackGround = () => {
-    const files = [
-      "47089555_p0.jpg",
-      "88588892_p0.png",
-      "89433360_p0.jpg",
-      "90209969_p0.jpg",
-      "90899797_p0.jpg",
-      "91921895_p0.jpg",
-      "93425255_p0.jpg",
-      "94982142_p0.png",
-      "72011358_p0.png",
-      "55372456_p0.jpg",
-      "73497750_p0.jpg",
-      "76991851_p0.jpg",
-      "80353930_p0.png",
-      "98373350_p0.jpg",
-    ];
-    const randomFile = files[Math.floor(Math.random() * files.length)];
-    setBgImageNumber(randomFile.substring(0, randomFile.indexOf("_")));
+    if (files.current === null) {
+      return;
+    }
+    const randomFile =
+      files.current[Math.floor(Math.random() * files.current.length)];
+    setBgImageSrc(randomFile.link);
     const bgImage = document.getElementById("bg-img");
-    bgImage.style.backgroundImage = `url(images/bg_pictures/${randomFile})`;
+    bgImage.style.backgroundImage = `url(images/bg_pictures/${randomFile.file})`;
   };
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setRandomBackGround();
     }, 5000);
+    fetch("background_images.csv")
+      .then((res) => res.text())
+      .then((resText) => {
+        const newFiles = [];
+        const lines = resText.split("\r\n");
+        const head = lines[0].split(",");
+        for (let index = 1; index < lines.length; index += 1) {
+          const line = lines[index].split(",");
+          const obj = {};
+          for (let lineIndex = 0; lineIndex < head.length; lineIndex += 1) {
+            obj[head[lineIndex]] = line[lineIndex];
+          }
+          newFiles.push(obj);
+        }
+        files.current = newFiles;
+      });
 
     return () => {
       clearInterval(interval);
@@ -101,7 +108,7 @@ export const Home = () => {
           <Button
             sx={{ marginTop: 1, color: "gray" }}
             target="_blank"
-            href={`https://www.pixiv.net/en/artworks/${bgImageNumber}`}
+            href={bgImageSrc}
           >
             Image Source
           </Button>
