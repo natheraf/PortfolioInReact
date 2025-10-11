@@ -116,6 +116,16 @@ export const Home = () => {
         <Stack alignItems={"center"} spacing={3} sx={{ padding: "0 1rem" }}>
           <Typography variant="h3">Projects</Typography>
           <ProjectCard
+            title="EPUB Reader"
+            grayTitle="Full Stack"
+            subTitle=""
+            description="Next-generation EPUB reader with gesture-based navigation, immersive reading modes, and cloud sync across all your devices."
+            technologies={["React", "Node.js", "MongoDB", "IndexedDB"]}
+            image="url(images/reader.jpg)"
+            imageSrc="https://unsplash.com/photos/graphical-user-interface-application-bmdMcsnFyCc"
+            projectLink="https://ericma.net/"
+          />
+          <ProjectCard
             title="CRM"
             grayTitle="Full Stack"
             subTitle="@hypoflo (Neuraxis)"
@@ -132,15 +142,7 @@ export const Home = () => {
             technologies={["React", "CI/CD", "GitHub Actions"]}
             image="url(images/club.jpg)"
             imageSrc="https://unsplash.com/photos/smartphone-screen-showing-facebook-application-D2TZ-ashGzc"
-          />
-          <ProjectCard
-            title="EPUB Reader"
-            grayTitle="Full Stack"
-            subTitle=""
-            description="Next-generation EPUB reader with gesture-based navigation, immersive reading modes, and cloud sync across all your devices."
-            technologies={["React", "Node.js", "MongoDB", "IndexedDB"]}
-            image="url(images/reader.jpg)"
-            imageSrc="https://unsplash.com/photos/graphical-user-interface-application-bmdMcsnFyCc"
+            projectLink="https://github.com/Koppelman-Student-Leadership-Council/slc-next"
           />
           <ProjectCard
             title="Media Downloader"
@@ -150,6 +152,7 @@ export const Home = () => {
             technologies={["Apache Server", "PHP", "JavaScript", "HTML", "CSS"]}
             image="url(images/media.jpg)"
             imageSrc="https://unsplash.com/photos/a-pair-of-mp3-players-sitting-next-to-each-other-csIWQzzcLYo"
+            projectLink="https://github.com/natheraf/myWebsite"
           />
           <Button
             target="_blank"

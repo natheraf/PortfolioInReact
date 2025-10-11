@@ -9,6 +9,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import PropTypes from "prop-types";
+import LinkIcon from "@mui/icons-material/Link";
 
 export const ProjectCard = ({
   title,
@@ -18,6 +19,7 @@ export const ProjectCard = ({
   technologies,
   image,
   imageSrc,
+  projectLink,
 }) => {
   const theme = useTheme();
   const greaterThanLarge = useMediaQuery(theme.breakpoints.up("lg"));
@@ -28,11 +30,29 @@ export const ProjectCard = ({
         <Stack direction="row">
           <Stack spacing={3} sx={{ p: 2 }} justifyContent={"space-evenly"}>
             <Stack>
-              <Stack spacing={1} direction={"row"}>
+              <Stack
+                spacing={1}
+                direction={"row"}
+                {...(projectLink
+                  ? {
+                      onClick: () => window.open(projectLink, "_blank").focus(),
+                      sx: {
+                        cursor: "pointer",
+                        alignItems: "center",
+                      },
+                    }
+                  : {})}
+              >
                 <Typography variant="h5">{title}</Typography>
                 <Typography variant="h5" color="GrayText">
                   {grayTitle}
                 </Typography>
+                {projectLink && (
+                  <LinkIcon
+                    onClick={() => window.open(projectLink, "_blank").focus()}
+                    htmlColor="GrayText"
+                  />
+                )}
               </Stack>
               <Typography variant="subtitle" color="GrayText">
                 {subTitle}
@@ -127,4 +147,5 @@ ProjectCard.propTypes = {
   technologies: PropTypes.array,
   image: PropTypes.string,
   imageSrc: PropTypes.string,
+  projectLink: PropTypes.string,
 };
