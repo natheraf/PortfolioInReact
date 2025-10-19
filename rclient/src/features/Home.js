@@ -38,7 +38,7 @@ export const Home = () => {
       .then((res) => res.text())
       .then((resText) => {
         const newFiles = [];
-        const lines = resText.split("\r\n");
+        const lines = resText.split(/\r?\n/);
         const head = lines[0].split(",");
         for (let index = 1; index < lines.length; index += 1) {
           const line = lines[index].split(",");
